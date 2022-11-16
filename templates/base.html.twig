@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Bibliotheeksysteem{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-    </head>
-    <header>{% include 'includes/_navigation.html.twig' %}</header>
+    {% include 'includes/_head.html.twig' %}
     <body>
-        {% block body %}{% endblock %}
+        {% include 'includes/_header.html.twig' %}
+
+        <main>
+            <div class="container">
+                <div class="mx-auto my-5">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </main>
     </body>
 </html>
