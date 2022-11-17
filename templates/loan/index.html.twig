@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Klant</th>
                 <th>Uitgeleend op</th>
                 <th>Uitgeleend tot</th>
                 <th>Acties</th>
@@ -18,6 +19,7 @@
         {% for loan in loans %}
             <tr>
                 <td>{{ loan.id }}</td>
+                <td>{{ loan.customer }}</td>
                 <td>{{ loan.startDate ? loan.startDate|date('d-m-Y H:i') : '' }}</td>
                 <td>{{ loan.endDate ? loan.endDate|date('d-m-Y H:i') : '' }}</td>
                 <td>
