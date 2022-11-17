@@ -1,34 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Book{% endblock %}
+{% block title %}Boekdetails{% endblock %}
 
 {% block body %}
-    <h1>Book</h1>
+    <h1>Boekdetails</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>#</th>
                 <td>{{ book.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titel</th>
                 <td>{{ book.title }}</td>
             </tr>
             <tr>
-                <th>Summary</th>
+                <th>Samenvatting</th>
                 <td>{{ book.summary }}</td>
             </tr>
             <tr>
-                <th>PublicationDate</th>
+                <th>Publicatiedatum</th>
                 <td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_book_index') }}">back to list</a>
-
-    <a href="{{ path('app_book_edit', {'id': book.id}) }}">edit</a>
+    <div class="mb-4">
+        <a href="{{ path('app_book_index') }}">Terug naar overzicht</a> |
+        <a href="{{ path('app_book_edit', {'id': book.id}) }}">Bewerken</a>
+    </div>
 
     {{ include('book/_delete_form.html.twig') }}
 {% endblock %}

@@ -1,37 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Loan index{% endblock %}
+{% block title %}Overzicht van uitleningen{% endblock %}
 
 {% block body %}
-    <h1>Loan index</h1>
+    <h1>Overzicht van uitleningen</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>StartDate</th>
-                <th>EndDate</th>
-                <th>actions</th>
+                <th>#</th>
+                <th>Uitgeleend op</th>
+                <th>Uitgeleend tot</th>
+                <th>Acties</th>
             </tr>
         </thead>
         <tbody>
         {% for loan in loans %}
             <tr>
                 <td>{{ loan.id }}</td>
-                <td>{{ loan.startDate ? loan.startDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ loan.endDate ? loan.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ loan.startDate ? loan.startDate|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ loan.endDate ? loan.endDate|date('d-m-Y H:i') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_loan_show', {'id': loan.id}) }}">show</a>
-                    <a href="{{ path('app_loan_edit', {'id': loan.id}) }}">edit</a>
+                    <a href="{{ path('app_loan_show', {'id': loan.id}) }}">Toon</a> |
+                    <a href="{{ path('app_loan_edit', {'id': loan.id}) }}">Bewerken</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Geen uitleningen gevonden.</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_loan_new') }}">Create new</a>
+    <a href="{{ path('app_loan_new') }}">Uitlening toevoegen</a>
 {% endblock %}

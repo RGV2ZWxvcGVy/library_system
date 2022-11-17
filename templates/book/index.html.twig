@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Book index{% endblock %}
+{% block title %}Overzicht van boeken{% endblock %}
 
 {% block body %}
-    <h1>Book index</h1>
+    <h1>Overzicht van boeken</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Summary</th>
-                <th>PublicationDate</th>
-                <th>actions</th>
+                <th>#</th>
+                <th>Titel</th>
+                <th>Samenvatting</th>
+                <th>Publicatiedatum</th>
+                <th>Acties</th>
             </tr>
         </thead>
         <tbody>
@@ -23,17 +23,17 @@
                 <td>{{ book.summary }}</td>
                 <td>{{ book.publicationDate ? book.publicationDate|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_book_show', {'id': book.id}) }}">show</a>
-                    <a href="{{ path('app_book_edit', {'id': book.id}) }}">edit</a>
+                    <a href="{{ path('app_book_show', {'id': book.id}) }}">Toon</a>
+                    <a href="{{ path('app_book_edit', {'id': book.id}) }}">Bewerken</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Geen boeken gevonden.</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_book_new') }}">Create new</a>
+    <a href="{{ path('app_book_new') }}">Boek toevoegen</a>
 {% endblock %}
