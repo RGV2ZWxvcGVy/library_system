@@ -12,6 +12,16 @@
                 <td>{{ loan.id }}</td>
             </tr>
             <tr>
+                <th>Boek</th>
+                {% for book in loan.book %}
+                    <td>{{ book }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Klant</th>
+                <td>{{ loan.customer }}</td>
+            </tr>
+            <tr>
                 <th>Uitgeleend op</th>
                 <td>{{ loan.startDate ? loan.startDate|date('d-m-Y H:i') : '' }}</td>
             </tr>
